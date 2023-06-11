@@ -19,8 +19,8 @@ export function Login() {
   
       const promise = axios.post(`${process.env.REACT_APP_API_BASE_URL}/`, logar);
       promise.then((res) => {
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("picture", res.data.picture);
+        localStorage.setItem("token", res.data.user.token);
+        localStorage.setItem("pic", res.data.user.pic);
         alert("Usuário logado com sucesso!");
         navigate("/home");
       });
