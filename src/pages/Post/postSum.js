@@ -31,7 +31,7 @@ export function PostSum() {
         },
       });
       promise.then((res) => {
-        const postId = res.data.post.id;
+        const postId = res.data.post;
         console.log(res.data);
         alert("livro cadastrado com sucesso!");
         navigate(`/post/${postId}`);
@@ -53,7 +53,7 @@ export function PostSum() {
     <Container>
       <Header />
       <Title>
-        <h1>Pesquise um livro</h1>
+        <h1>Insira um resumo</h1>
       </Title>
 
       <Inputs>

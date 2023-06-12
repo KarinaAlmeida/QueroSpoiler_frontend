@@ -10,13 +10,13 @@ export function PostPage() {
 
   useEffect(() => {
     fetchPost();
-  }, []);
+  }, [postId]);
 
+  
   const fetchPost = async () => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/post/${postId}`);
       setPost(response.data);
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }

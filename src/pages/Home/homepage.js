@@ -22,6 +22,7 @@ export function Homepage() {
       console.log(error);
     }
   };
+  
 
   return (
     <Container>
