@@ -9,6 +9,7 @@ import { Homepage } from './pages/Home/homepage.js';
 import UserContext from './context/UserContext.js';
 import { PostSum } from './pages/Post/postSum.js';
 import { PostPage } from './pages/Post/postId.js';
+import { SearchSum } from './pages/Search/results.js';
 
 
 function App () {
@@ -31,10 +32,9 @@ function App () {
               <Route path="/home" element= {<Homepage />} />
               <Route path="/post" element= {<PostSum />} />
               <Route path="/post/:postId" element= {<PostPage />} />
+              <Route path="/results" element= {<SearchSum />} />
 
-
-              {/* <Route path="/user" element= {<Homepage />} />
-              <Route path="/results" element= {<Homepage />} /> */}
+              {/* <Route path="/user" element= {<Homepage />} /> */}
 
 
 

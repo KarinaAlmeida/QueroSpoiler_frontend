@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { LoginAPI } from "../../services/loginApi";
 
 export function Login() {
     const navigate = useNavigate();
@@ -17,10 +17,11 @@ export function Login() {
         return alert("Por favor, preencha todos os dados!");
       }
   
-      const promise = axios.post(`${process.env.REACT_APP_API_BASE_URL}/`, logar);
+      const promise = LoginAPI(logar);
+
       promise.then((res) => {
-        localStorage.setItem("token", res.data.user.token);
-        localStorage.setItem("pic", res.data.user.pic);
+        localStorage.setItem("token", res.user.token);
+        localStorage.setItem("pic", res.user.pic);
         alert("Usuário logado com sucesso!");
         navigate("/home");
       });
@@ -29,6 +30,10 @@ export function Login() {
         console.log(err.response.data);
         alert("Ops! Tente novamente!");
       });
+    }
+
+   function  handleInputChange(e){
+      setLogar({...logar, [e.target.name]: e.target.value})
     }
   
     return (
@@ -45,20 +50,18 @@ export function Login() {
             <input
               type="email"
               placeholder="e-mail"
+              name="email"
               value={logar.email}
-              onChange={(event) =>
-                setLogar({ ...logar, email: event.target.value })
-              }
+              onChange = {(e) => handleInputChange(e)}
               required
             />
   
             <input
               type="password"
               placeholder="senha"
+              name="password"
               value={logar.password}
-              onChange={(event) =>
-                setLogar({ ...logar, password: event.target.value })
-              }
+              onChange = {(e) => handleInputChange(e)}
               required
             />
   
@@ -201,5 +204,3 @@ export function Login() {
       cursor: pointer;
     }
   `;
-
-    

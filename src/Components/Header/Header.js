@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import React from "react";
 
-export function Header() {
+export function Header({ onResetSearch }) {
   const picture = localStorage.getItem("pic");
 
     return (
@@ -17,7 +17,7 @@ export function Header() {
           </Link>
 
           <Link to="/results" style={{ textDecoration: "none" }}>
-            <h1>Pesquise um livro</h1>
+            <h1 onClick={onResetSearch}>Pesquise um livro</h1>
           </Link>
           
           <div>

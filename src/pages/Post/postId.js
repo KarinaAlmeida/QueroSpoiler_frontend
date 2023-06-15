@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import styled from "styled-components";
 import { Header } from "../../Components/Header/Header.js";
+import { getPostAPI } from "../../services/getPostId.js";
 
 export function PostPage() {
   const { postId } = useParams();
@@ -15,8 +15,8 @@ export function PostPage() {
   
   const fetchPost = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/post/${postId}`);
-      setPost(response.data);
+      const response = await getPostAPI(postId)
+      setPost(response);
     } catch (error) {
       console.log(error);
     }

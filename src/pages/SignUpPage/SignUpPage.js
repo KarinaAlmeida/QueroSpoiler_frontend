@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { SignUpAPI } from "../../services/signUpApi";
 
 export function SignUp() {
     const navigate = useNavigate();
@@ -27,9 +27,8 @@ export function SignUp() {
         return alert ("As senhas devem ser iguais!")
       }
 
+      const promise = SignUpAPI(register);
 
-  
-      const promise = axios.post(`${process.env.REACT_APP_API_BASE_URL}/signup`, register);
       promise.then((res) => {
         alert("Usuário cadastrado com sucesso!");
         navigate("/");
@@ -39,6 +38,10 @@ export function SignUp() {
         console.log(err.response.data);
         alert("Ops! Tente novamente!");
       });
+    }
+
+    function  handleInputChange(e){
+      setRegister({...register, [e.target.name]: e.target.value})
     }
   
 
@@ -58,40 +61,36 @@ export function SignUp() {
           <input
               type="text"
               placeholder="nome"
+              name="name"
               value={register.name}
-              onChange={(event) =>
-                setRegister({ ...register, name: event.target.value })
-              }
+              onChange = {(e) => handleInputChange(e)}
               required
             />
 
             <input
               type="email"
               placeholder="e-mail"
+              name="email"
               value={register.email}
-              onChange={(event) =>
-                setRegister({ ...register, email: event.target.value })
-              }
+              onChange = {(e) => handleInputChange(e)}
               required
             />
   
             <input
               type="password"
               placeholder="senha"
+              name="password"
               value={register.password}
-              onChange={(event) =>
-                setRegister({ ...register, password: event.target.value })
-              }
+              onChange = {(e) => handleInputChange(e)}
               required
             />
 
              <input
               type="password"
               placeholder="confirme senha"
+              name="confirmPassword"
               value={register.confirmPassword}
-              onChange={(event) =>
-                setRegister({ ...register, confirmPassword: event.target.value })
-              }
+              onChange = {(e) => handleInputChange(e)}
               required
             />
 
@@ -99,9 +98,8 @@ export function SignUp() {
             type="url"
             placeholder="foto url"
             value={register.picture}
-            onChange={(event) =>
-              setRegister({ ...register, picture: event.target.value })
-            }
+            name="picture"
+            onChange = {(e) => handleInputChange(e)}
             required
           />
   
@@ -243,5 +241,3 @@ const Container = styled.div`
       cursor: pointer;
     }
   `;
-
-    

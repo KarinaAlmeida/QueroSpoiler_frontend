@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { Header } from "../../Components/Header/Header.js";
+import { homeAPI } from "../../services/homeApi.js";
 
 export function Homepage() {
   const [recentSummaries, setRecentSummaries] = useState([]);
@@ -15,9 +15,8 @@ export function Homepage() {
 
   const fetchRecentSummaries = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/home`);
-      setRecentSummaries(response.data);
-      console.log(response.data);
+      const response = await homeAPI();
+      setRecentSummaries(response);
     } catch (error) {
       console.log(error);
     }

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { Header } from "../../Components/Header/Header.js";
+import { postAPI } from "../../services/postSumApi.js";
 
 export function PostSum() {
     const navigate = useNavigate();
@@ -25,17 +25,12 @@ export function PostSum() {
 
       const token = localStorage.getItem("token");
   
-      const promise = axios.post(`${process.env.REACT_APP_API_BASE_URL}/post`, post, {
-        headers: {
-            Authorization: `Bearer ${token}`
-        },
-      });
+      const promise = postAPI (post, token);
+
       promise.then((res) => {
-        const postId = res.data.post;
-        console.log(res.data);
+        const postId = res.post;
         alert("livro cadastrado com sucesso!");
         navigate(`/post/${postId}`);
-        // navigate("/home"); 
       });
   
       promise.catch((err) => {
@@ -135,10 +130,11 @@ const Title = styled.div`
   }
   
   @media (max-width: 950px) {
-    width: 100%;
+    width: 80vw;
     box-sizing: border-box;
-    padding-left: 3%;
-    padding-top: 10%;
+    padding-left: auto;
+    padding-right:auto;
+    padding-top: 5vh;
 
     h1 {
       font-size: 50px;
@@ -149,7 +145,7 @@ const Title = styled.div`
 
 const Inputs = styled.div`
 @media (max-width: 950px) {
-  height: 100vh;
+  height: 50vh;
   width: 100vw;
   form {
     margin: auto;
