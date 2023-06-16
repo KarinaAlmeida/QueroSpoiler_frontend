@@ -1,101 +1,43 @@
 import styled from "styled-components";
 
+
 export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: #a088b8;
-  min-height: 110vh;
-  margin-top:-1%;
+  min-height: 100vh;
+  margin-top: 72px; 
 `;
 
-export const Title = styled.div`
-  display: flex;
-  width: 70vw;
-  font-family: "Passion One";
-  font-style: normal;
-  font-weight: 700;
-  color: #ffffff;
-  margin-left: 41%;
-
-  h1 {
-    font-size: 50px;
-    line-height: 200px;
-  }
-  
-  @media (max-width: 950px) {
-    width: 80vw;
-    box-sizing: border-box;
-    padding-left: auto;
-    padding-right:auto;
-    padding-top: 5vh;
-
-    h1 {
-      font-size: 50px;
-      line-height: 40px;
-    }
-  }
-`;
-
-export const Inputs = styled.div`
-@media (max-width: 950px) {
-  height: 50vh;
-  width: 100vw;
-  form {
-    margin: auto;
-    width: 100vw;
-    input {
-      width: 90%;
-    }
-    button {
-      width: 90%;
-    }
-  }
-}
-display: flex;
-flex-direction: column;
-align-items: center;
-font-family: "Oswald";
-font-weight: 700;
-gap: 0px;
-width: 50vw;
-background-color: #A088B8;
-form {
+export const SideMenu = styled.div`
+  position: fixed;
+  left: 0;
+  top: 65px; 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: auto;
-  gap: 10px;
-}
-input {
-  width: 30vw;
-  height: 80px;
-  border-radius: 6px;
-  font-family: "Oswald";
-  font-size: 27px;
-  color: #9f9f9f;
-  padding: 18px;
-  border-radius: 6px;
-  border: none;
-  box-sizing: border-box;
-}
-button {
-  width: 30vw;
-  height: 65px;
-  background: #682DA4;
-  border-radius: 6px;
-  font-family: "Oswald";
-  font-weight: 700;
-  font-size: 27px;
-  color: #ffffff;
-  border-color: transparent;
-  cursor: pointer;
-  border-radius: 6px;
-  border: none;
-}
+  align-items: flex-start;
+  background-color: #682DA4;
+  padding: 20px;
+  border-radius: 8px;
+  height: calc(100vh - 72px); 
 `;
 
+export const MenuItem = styled.div`
+  margin-bottom: 10px;
+
+  p {
+    width: 120px;
+    height: 40px;
+    color: #ffffff;
+    font-family: "Passion One";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    cursor: pointer;
+  }
+`;
 export const SummariesContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -103,10 +45,11 @@ export const SummariesContainer = styled.div`
   margin-top: 1%;
   gap: 30px;
   font-family: "Passion One";
+  margin-left: 10%;
 
   @media (max-width: 600px) {
     margin-top: 5%;
-    padding: 0 10px;
+    padding: 15 10px;
   }
 `;
 
@@ -123,6 +66,22 @@ export const SummaryCard = styled.div`
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    width: 290px;
+    margin-left:40%;
+  }
+`;
+
+export const DeleteButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: #ff0000;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: auto;
+  
+
+  &:hover {
+    color: #cc0000;
   }
 `;
 

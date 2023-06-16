@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -8,17 +7,19 @@ export const Container = styled.div`
   flex-direction: column;
   background-color: #a088b8;
   min-height: 100vh;
-  margin-top: 5%;
+  margin-top: 0%;
 `;
 
 export const PostContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 8px;
   width: 600px;
   font-family: "Passion One";
+  margin-top: 72px; 
+  
 
   @media (max-width: 600px) {
     width: 100%;
@@ -29,7 +30,7 @@ export const PostContainer = styled.div`
 
 export const CoverImage = styled.img`
   width: 200px;
-  height: 250px;
+  height: 310px;
   object-fit: cover;
   border-radius: 8px;
   margin-right: 20px;
@@ -45,10 +46,11 @@ export const CoverImage = styled.img`
 export const PostInfo = styled.div`
   display: flex;
   flex-direction: column;
+  width: calc(100% - 220px); /* Ajusta a largura para ocupar o espaço restante */
 
   h1 {
     font-size: 25px;
-    color: #682DA4;
+    color: #682da4;
   }
   h2 {
     font-size: 18px;
@@ -58,8 +60,9 @@ export const PostInfo = styled.div`
   @media (max-width: 600px) {
     align-items: center;
     text-align: center;
-  }
-`;
+    width: 100%; /* Ajusta a largura para ocupar todo o espaço disponível */
+    margin-top: 20px;
+  }`;
 
 export const SummaryText = styled.p`
   margin-top: 10px;
@@ -84,22 +87,22 @@ export const NotFound = styled.div`
 export const NotFoundImage = styled.img`
   width: 120%;
   height: 120%;
-  `;
+`;
 
 export const Loading = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-background-color: #a088b8;
-min-height: 100vh;
-p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #a088b8;
+  min-height: 100vh;
+  p {
     width: 70vw;
-  font-family: "Passion One";
-  font-style: normal;
-  font-weight: 700;
-  color: #ffffff;
-  margin-left: 25%;
-  font-size: 100px;
-}
+    font-family: "Passion One";
+    font-style: normal;
+    font-weight: 700;
+    color: #ffffff;
+    margin-left: 25%;
+    font-size: 100px;
+  }
 `;

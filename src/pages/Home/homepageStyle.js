@@ -8,7 +8,7 @@ export const Container = styled.div`
   flex-direction: column;
   background-color: #a088b8;
   min-height: 100vh;
-  margin-top: 5%;
+  margin-top: 4%;
 `;
 
 export const Title = styled.div`

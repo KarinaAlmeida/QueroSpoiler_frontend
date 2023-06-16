@@ -35,7 +35,7 @@ export function PostSum() {
       });
   
       promise.catch((err) => {
-        if (err.response.status === 401) {
+        if (err.response.status === 401 || 500) {
             alert("Acesso não autorizado! Por favor, faça login novamente.");
             navigate("/");
           } else {
@@ -61,7 +61,8 @@ export function PostSum() {
                 type="text"
                 placeholder="Título"
                 value={post.title}
-                onChange = {(e) => handleInputChange(e)}
+                name="title"
+                onChange = {handleInputChange}
                 required
                 />
 
@@ -69,7 +70,8 @@ export function PostSum() {
                 type="text"
                 placeholder="Autor(a)"
                 value={post.author}
-                onChange = {(e) => handleInputChange(e)}
+                name="author"
+                onChange = {handleInputChange}
                 required
                 />
     
@@ -77,7 +79,8 @@ export function PostSum() {
                 type="url"
                 placeholder="Capa do livro (link)"
                 value={post.coverUrl}
-                onChange = {(e) => handleInputChange(e)}
+                name="coverUrl"
+                onChange = {handleInputChange}
                 required
                 />
 
@@ -85,7 +88,8 @@ export function PostSum() {
                 type="text"
                 placeholder="Resumo"
                 value={post.summary}
-                onChange = {(e) => handleInputChange(e)}
+                name="summary"
+                onChange = {handleInputChange}
                 required
                 />
     
