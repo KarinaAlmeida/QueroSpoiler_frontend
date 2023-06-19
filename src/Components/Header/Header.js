@@ -6,7 +6,7 @@ export function Header({ onResetSearch }) {
   const [openMenu, setOpenMenu] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [userChoice, setUserChoice] = useState(null);
-  const picture = localStorage.getItem("pic");
+  const [profilePicture, setProfilePicture] = useState(localStorage.getItem("pic") || "");  
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ export function Header({ onResetSearch }) {
   }
 
   function handleIconClick() {
-    if (!token || !picture) {
+    if (!token || !profilePicture) {
       setModalIsOpen(true);
     }else{
       setOpenMenu(!openMenu)
@@ -60,11 +60,11 @@ export function Header({ onResetSearch }) {
         </Link>
         <MenuContainer>
         <div>
-          {picture ? (
+          {profilePicture ? (
             <img
               onClick={handleIconClick}
               alt="icon"
-              src={picture}
+              src={profilePicture}
               style={{ marginRight: "30px" }}
             />
           ) : (

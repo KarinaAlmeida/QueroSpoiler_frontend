@@ -17,7 +17,7 @@ export function SignUp() {
     const { name, email, password, confirmPassword, picture  } = register;
   
     function registerUser(event) {
-      event.preventDefault();
+      event.preventDefault(); 
   
       if (name==="" || email === "" || password === "" || confirmPassword === "" || picture==="") {
         return alert("Por favor, preencha todos os dados!");

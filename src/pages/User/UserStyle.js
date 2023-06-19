@@ -21,7 +21,7 @@ export const SideMenu = styled.div`
   background-color: #682DA4;
   padding: 20px;
   border-radius: 8px;
-  height: calc(100vh - 72px); 
+  height: calc(102vh - 72px); 
 `;
 
 export const MenuItem = styled.div`
@@ -129,3 +129,63 @@ export const SummaryText = styled.p`
     text-align: center;
   }
 `;
+
+export const Inputs = styled.div`
+    @media (max-width: 950px) {
+      height: 100vh;
+      width: 100vw;
+      margin-left: 30%;
+      form {
+        margin: auto;
+        width: auto;
+        input {
+          width: 90%;
+        }
+        button {
+          width: 90%;
+        }
+      }
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Oswald";
+    font-weight: 700;
+    gap: 0px;
+    width: 50vw;
+    background-color: #A088B8;
+    margin-left: 12%;
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: auto;
+      gap: 10px;
+    }
+    input {
+      width: 30vw;
+      height: 80px;
+      border-radius: 6px;
+      font-family: "Oswald";
+      font-size: 27px;
+      color: #9f9f9f;
+      padding: 18px;
+      border-radius: 6px;
+      border: none;
+      box-sizing: border-box;
+    }
+    button {
+      width: 30vw;
+      height: 65px;
+      background: #682DA4;
+      border-radius: 6px;
+      font-family: "Oswald";
+      font-weight: 700;
+      font-size: 27px;
+      color: #ffffff;
+      border-color: transparent;
+      cursor: pointer;
+      border-radius: 6px;
+      border: none;
+    }
+    `;
