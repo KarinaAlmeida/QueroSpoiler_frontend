@@ -115,6 +115,7 @@ export const FavoriteButton = styled.button`
   cursor: pointer;
   align-self: flex-end; 
   margin-top: -20px;
+  margin-right: -3%;
 
   &:hover {
     color: #8c4bce;

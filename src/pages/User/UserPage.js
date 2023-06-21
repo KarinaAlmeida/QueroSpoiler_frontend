@@ -10,6 +10,7 @@ import { BsBalloonHeartFill, BsBalloonHeart } from "react-icons/bs";
 import { deletePostAPI } from "../../services/deletePostApi.js";
 import { UpdateAPI } from "../../services/updatePictureApi.js";
 import { userFavesAPI } from "../../services/userFavesApi.js";
+import { deleteFavesAPI } from "../../services/deleteFave.js";
 
 
 export function UserPage() {
@@ -77,11 +78,19 @@ export function UserPage() {
     setShowFaves(true);
     fetchUserFaves();
   }
-  const toggleFavorite = (summaryId) => {
-    setIsFavorite((prevFavorites) => ({
+  const toggleFavorite = async (summaryId) => {
+    try {
+      await deleteFavesAPI(token, summaryId)
+      setIsFavorite((prevFavorites) => ({
       ...prevFavorites,
       [summaryId]: !prevFavorites[summaryId]
     }));
+    alert("Post desfavoritado!");
+    window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+    
   };
 
   const deletePost = async (postId) =>{
@@ -185,7 +194,7 @@ export function UserPage() {
                  <h2>Autor(a): {summary.author}</h2>
                  <SummaryText>{summary.summary}</SummaryText>
                  <FavoriteButton onClick={() => toggleFavorite(summary.id)}>
-               {isFavorite[summary.id] ? <BsBalloonHeartFill /> : <BsBalloonHeart />}
+               {isFavorite[summary.id] ?  <BsBalloonHeart />: <BsBalloonHeartFill />}
              </FavoriteButton>
                </SummaryInfo>
            </SummaryCard>
