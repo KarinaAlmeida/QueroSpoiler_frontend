@@ -189,3 +189,16 @@ export const Inputs = styled.div`
       border: none;
     }
     `;
+    export const FavoriteButton = styled.button`
+    background-color: transparent;
+    border: none;
+    color: #682DA4;
+    font-size: 20px;
+    cursor: pointer;
+    align-self: flex-end; 
+    margin-top: -20px;
+  
+    &:hover {
+      color: #8c4bce;
+    }
+  `;

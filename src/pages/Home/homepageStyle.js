@@ -59,7 +59,6 @@ export const SummaryCard = styled.div`
   background-color: #ffffff;
   border-radius: 8px;
   width: 600px;
-  cursor:pointer;
 
   @media (max-width: 600px) {
     width: 100%;
@@ -74,6 +73,7 @@ export const CoverImage = styled.img`
   object-fit: cover;
   border-radius: 8px;
   margin-right: 20px;
+  cursor:pointer;
 
   @media (max-width: 600px) {
     width: 100%;
@@ -90,6 +90,7 @@ export const SummaryInfo = styled.div`
   h1 {
     font-size: 25px;
     color: #682DA4;
+    cursor:pointer;
   }
   h2 {
     font-size: 18px;
@@ -107,8 +108,23 @@ export const SummaryText = styled.p`
   font-size: 20px;
   color: #585858;
   text-align: justify;
+  cursor:pointer;
 
   @media (max-width: 600px) {
     text-align: center;
+  }
+`; 
+
+export const FavoriteButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: #682DA4;
+  font-size: 20px;
+  cursor: pointer;
+  align-self: flex-end; 
+  margin-top: -20px;
+
+  &:hover {
+    color: #8c4bce;
   }
 `;

@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Container, MenuContainer, DropMenu, ModalContainer, ModalContent, ModalTitle, ModalButton, StyledIcon } from "./HeaderStyle";
+import { AuthContext } from "../../context/AuthContext";
 
 export function Header({ onResetSearch }) {
   const [openMenu, setOpenMenu] = useState(false);
@@ -9,10 +10,12 @@ export function Header({ onResetSearch }) {
   const [profilePicture, setProfilePicture] = useState(localStorage.getItem("pic") || "");  
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
+  const { setIsAuthenticated } = useContext(AuthContext);
 
   function handleLogout() {
     localStorage.removeItem("token");
     localStorage.removeItem("pic");
+    setIsAuthenticated(false);
     navigate("/");
   }
 

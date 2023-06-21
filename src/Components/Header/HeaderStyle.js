@@ -136,4 +136,5 @@ export const StyledIcon = styled(RiBearSmileFill)`
   color: white;
   font-size: 28px;
   margin-right: 10px;
+  cursor:pointer;
   `;

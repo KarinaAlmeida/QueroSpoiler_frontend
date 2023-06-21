@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginAPI } from "../../services/loginApi";
 import { Container, Title, Inputs } from "./SignInStyle";
+import { AuthContext } from "../../context/AuthContext";
 
 
 export function Login() {
     const navigate = useNavigate();
     const [logar, setLogar] = useState({ email: "", password: "" });
     const { email, password } = logar;
+    const { setIsAuthenticated } = useContext(AuthContext);
+
   
     function log(event) {
       event.preventDefault();
@@ -21,6 +24,7 @@ export function Login() {
       promise.then((res) => {
         localStorage.setItem("token", res.user.token);
         localStorage.setItem("pic", res.user.pic);
+        setIsAuthenticated(true);
         alert("Usuário logado com sucesso!");
         navigate("/home");
       });
