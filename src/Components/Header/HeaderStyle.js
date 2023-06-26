@@ -4,7 +4,7 @@ import { RiBearSmileFill } from "react-icons/ri";
 export const Container = styled.div`
   width: 100%;
   height: 72px;
-  background-color: #682DA4;
+  background: linear-gradient(to right, #682DA4, #A088B8);
   display: flex;
   align-items: center;
   justify-content: space-between;

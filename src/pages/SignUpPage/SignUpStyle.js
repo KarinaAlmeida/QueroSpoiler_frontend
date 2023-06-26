@@ -13,13 +13,13 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     width: 75vw;
-    background-color: #232121;
+    background: linear-gradient(to right, #682DA4, #A088B8);
     font-family: "Passion One";
     font-style: normal;
     font-weight: 700;
     color: #ffffff;
     div {
-      margin: 220px 0 0 110px;
+      margin: 220px 0 0 5%;
     }
     h1 {
       font-size: 106px;
@@ -44,21 +44,23 @@ export const Container = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 10px 0 0 0;
+        margin: 12px 10% 0 0;
       }
       h1 {
         font-size: 76px;
         line-height: 75px;
         width: 40%;
+        margin-left:-34%;
       }
       h2 {
         text-align: center;
         font-size: 23px;
         line-height: 30px;
         width: 80%;
+        margin-left: 8%;
       }
     }
-  `;
+    `;
   
   export const Inputs = styled.div`
     @media (max-width: 950px) {

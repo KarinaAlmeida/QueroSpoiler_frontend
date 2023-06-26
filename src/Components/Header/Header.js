@@ -46,6 +46,14 @@ export function Header({ onResetSearch }) {
       navigate("/");
     }
   }
+  function handleWriteSummary() {
+    if (!token) {
+    alert("Você precisa estar logado para escrever um resumo.");  
+    navigate("/")
+  }else {
+    navigate("/post")
+  }
+}
 
   return (
     <>
@@ -54,9 +62,9 @@ export function Header({ onResetSearch }) {
           <p>QS</p>
         </Link>
 
-        <Link to="/post" style={{ textDecoration: "none" }}>
+        <div onClick={handleWriteSummary} style={{ textDecoration: "none" }}>
           <h1>Escreva seu resumo</h1>
-        </Link>
+        </div>
 
         <Link to="/results" style={{ textDecoration: "none" }}>
           <h1 onClick={onResetSearch}>Pesquise um livro</h1>

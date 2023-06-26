@@ -35,13 +35,8 @@ export function PostSum() {
       });
   
       promise.catch((err) => {
-        if (err.response.status === 401 || 500) {
-            alert("Acesso não autorizado! Por favor, faça login novamente.");
-            navigate("/");
-          } else {
-            console.log(err.response.data);
-            alert("Ops! Tente novamente!");
-          }
+         console.log(err.response.data);
+         alert("Ops! Tente novamente!");
       });
     }
     function  handleInputChange(e){

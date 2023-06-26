@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "../../Components/Header/Header.js";
 import { Container, SideMenu, MenuItem,
   SummariesContainer, SummaryCard, SummaryInfo, SummaryText,
-   CoverImage, DeleteButton, Inputs, FavoriteButton } from "./UserStyle.js";
+   CoverImage, DeleteButton, Inputs, FavoriteButton, NoItemsMessage } from "./UserStyle.js";
 import { userPostAPI } from "../../services/userPostApi.js";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { BsBalloonHeartFill, BsBalloonHeart } from "react-icons/bs";
@@ -26,18 +26,14 @@ export function UserPage() {
   const token = localStorage.getItem("token");
 
 
+
   const fetchUserSummaries = async () => {
     try {
       const response = await userPostAPI(token);
       setUserSummaries(response);
      
     } catch (err) {
-      if (err.response.status === 404) {
-        alert("Você não possui nenhum post!");
-      } else {
         console.log(err.response.data);
-        alert("Ops! Tente novamente!");
-      }
     }
   };
 
@@ -47,12 +43,7 @@ export function UserPage() {
       setUserFaves(response);
      
     } catch (err) {
-      if (err.response.status === 404) {
-        alert("Você não possui nenhum favorito!");
-      } else {
         console.log(err.response.data);
-        alert("Ops! Tente novamente!");
-      }
     }
   };
 
@@ -70,6 +61,7 @@ export function UserPage() {
   function handleTogglePosts() {
     setShowPosts(true);
     setShowForm(false);
+    setShowFaves(false);
     fetchUserSummaries();
   }
   function handleToggleFaves() {
@@ -147,7 +139,8 @@ export function UserPage() {
         </MenuItem>
       </SideMenu>
 
-      {showForm && (
+
+      {showForm &&(
         <Inputs>
          <form onSubmit={updatePic}>
           <input
@@ -165,7 +158,10 @@ export function UserPage() {
         </Inputs>
       )}
 
-      {showPosts && (
+      {showPosts && userSummaries.length === 0 && (
+        <NoItemsMessage>Você ainda não possui nenhum post!</NoItemsMessage>
+      )}
+      {showPosts && userSummaries.length > 0 && (
         <SummariesContainer>
             {userSummaries.map((summary) => (
               <SummaryCard key={summary.id} onClick={() => navigate(`/post/${summary.id}`)}>
@@ -183,7 +179,11 @@ export function UserPage() {
         </SummariesContainer>
       )} 
 
-{showFaves && (
+      {showFaves && userFaves.length === 0 && (
+        <NoItemsMessage>Você ainda não possui nenhum favorito!</NoItemsMessage>
+      )}
+
+      {showFaves && userFaves.length > 0 && (
          <SummariesContainer>
          {userFaves.map((summary) => (
            <SummaryCard key={summary.id}>

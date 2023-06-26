@@ -18,7 +18,7 @@ export const SideMenu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #682DA4;
+  background: linear-gradient(to bottom, #682DA4, #A088B8);
   padding: 20px;
   border-radius: 8px;
   height: calc(102vh - 72px); 
@@ -202,3 +202,14 @@ export const Inputs = styled.div`
       color: #8c4bce;
     }
   `;
+
+export const NoItemsMessage = styled.p`
+font-size: 20px;
+color: #ffffff;
+font-family: "Passion One";
+margin-top: -8%;
+margin-left: 10%;
+@media (max-width: 600px) {
+  margin-left:40%;
+  }
+`;
