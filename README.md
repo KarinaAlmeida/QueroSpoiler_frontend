@@ -43,6 +43,8 @@ git clone https://github.com/KarinaAlmeida/projeto_autoral_frontend
 
 - Create ```.env``` _(front-end)_ based on ```.env.example```
 
+-  Run the command ```npm i``` to install all dependecies.
+
 - Run the project with ```npm start```
 
 
