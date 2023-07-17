@@ -31,12 +31,6 @@
 - Front-end
   - React.js
   - Styled Components
-- Back-end
-  - Node.js
-  - TypeScript
-  - Prisma ORM
-  - PostgreSQL
-  - Jest
 
 
 ## Getting Started
