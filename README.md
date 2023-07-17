@@ -49,4 +49,8 @@ git clone https://github.com/KarinaAlmeida/projeto_autoral_frontend
 
 - Create ```.env``` _(front-end)_ based on ```.env.example```
 
--Run the project with ```npm start```
+- Run the project with ```npm start```
+
+
+- Connect to the application front-end in browser with ```http://localhost:PORT/```
+
